@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/common/app.css"/>
+    <link rel="stylesheet" href="../res/common/css/normalize.css"/>
+    <style>
+        .navBar {
+            width: 100%;
+            height: 40px;
+            background: green;
+        }
+
+        .navContent {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<div data-tab-head data-tabEvent="" data-tabHead ="" data-tabShow=""></div>
+
+xxx
+<div class="navBar">A</div>
+<div class="navContent">
+    navContent1
+</div>
+
+<div class="navBar">B</div>
+<div class="navContent">
+    navContent2
+</div>
+
+<div class="navBar">C</div>
+<div class="navContent">
+    navContent3
+</div>
+
+<div class="navBar">D</div>
+<div class="navContent">
+    navContent4
+</div>
+
+<script src="../res/seajs/sea.js"></script>
+<script>
+    seajs.config({
+        base: '../',
+        alias: {
+            // 类库
+            jquery: 'res/seajs/lib/jquery',
+            zepto: 'res/seajs/lib/zepto',
+            fastclick: 'res/seajs/lib/fastclick',
+            underscore: 'res/seajs/lib/underscore',
+            backbone: 'res/seajs/lib/backbone',
+            IScroll: 'res/seajs/lib/iscroll-lite',
+
+            constants: 'static/js/common/constants',
+            config: 'static/js/common/config',
+            Assert: 'static/js/common/Assert',
+            util: 'static/js/common/util'
+        }
+    });
+    seajs.use('test/js/nav')
+</script>
+
+</body>
+</html>

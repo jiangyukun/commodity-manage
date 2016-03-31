@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    $(function () {
+        function common(ele, $target) {
+            var $this = $(ele),
+                    index = $this.index();
+            $this.addClass('on').siblings().removeClass('on');
+            $target.val($(ele).data("value"));
+        }
+
+        $(".j-list-bank").click(function () {
+            common(this, $("#hasmoney"));
+        });
+        $(".j-list-has").click(function () {
+            common(this, $("#bankNameInput"));
+        });
+    });
+</script>
+</body>
+</html>

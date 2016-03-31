@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../res/jquery/jquery.min.js"></script>
+</head>
+<body>
+<div id="t" data-id="xx" data-id1="xx1" data-bind="options: tickets,
+                       optionsCaption: 'Choose...',
+                       optionsText: 'name',
+                       value: chosenTicket"></div>
+
+<script>
+    var data = $('#t').data();
+    console.log(data);
+</script>
+</body>
+</html>

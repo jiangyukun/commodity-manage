@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!--<setting name="cacheEnabled" value="false"/>-->
+        <!--<setting name="useCache" value="false"/>-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="com.ieebook.wxshop.entity.BaseEntity" alias="BaseEntity"/>
+        <typeAlias type="com.ieebook.wxshop.entity.commodity.Commodity" alias="Commodity"/>
+        <typeAlias type="com.ieebook.wxshop.entity.commodity.CommodityType" alias="CommodityType"/>
+        <typeAlias type="com.ieebook.wxshop.entity.commodity.CommoditySequnce" alias="CommoditySequnce"/>
+        <typeAlias type="com.ieebook.wxshop.entity.place.Province" alias="Province"/>
+        <typeAlias type="com.ieebook.wxshop.entity.place.City" alias="City"/>
+        <typeAlias type="com.ieebook.wxshop.entity.place.Town" alias="Town"/>
+        <typeAlias type="com.ieebook.wxshop.entity.position.ServeDistrict" alias="ServeDistrict"/>
+        <typeAlias type="com.ieebook.wxshop.entity.merchant.Merchant" alias="Merchant"/>
+        <typeAlias type="com.ieebook.wxshop.entity.order.Order" alias="Order"/>
+        <typeAlias type="com.ieebook.wxshop.entity.user.User" alias="User"/>
+        <typeAlias type="com.ieebook.wxshop.entity.order.OrderLinkCommodity" alias="OrderLinkCommodity"/>
+        <typeAlias type="com.ieebook.wxshop.entity.merchant.MerchantInfo" alias="MerchantInfo"/>
+        <typeAlias type="com.ieebook.wxshop.entity.other.CloudImage" alias="CloudImage"/>
+        <typeAlias type="com.ieebook.wxshop.entity.products.Products" alias="Products"/>
+
+        <!--DTO-->
+        <typeAlias type="com.ieebook.wxshop.dto.category.CategoryItemDto" alias="CategoryItemDto"/>
+        <typeAlias type="com.ieebook.wxshop.dto.category.CategorySelectDto" alias="CategorySelectDto"/>
+
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mybatis/BaseEntity.xml"/>
+        <mapper resource="mybatis/Commodity.xml"/>
+        <mapper resource="mybatis/CommodityType.xml"/>
+        <mapper resource="mybatis/Placename.xml"/>
+        <mapper resource="mybatis/ServeDistrict.xml"/>
+        <mapper resource="mybatis/Merchant.xml"/>
+        <mapper resource="mybatis/Order.xml"/>
+        <mapper resource="mybatis/User.xml"/>
+        <mapper resource="mybatis/OrderLinkCommodity.xml"/>
+        <mapper resource="mybatis/MerchantInfo.xml"/>
+        <mapper resource="mybatis/CloudImage.xml"/>
+        <mapper resource="mybatis/CommoditySequnce.xml"/>
+        <mapper resource="mybatis/Products.xml"/>
+    </mappers>
+</configuration>

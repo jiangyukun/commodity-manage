@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ieebook.wxshop.service.ServeDistrict">
+    <!-- 配送区域-->
+    <resultMap id="serve_district" type="ServeDistrict" extends="com.ieebook.wxshop.entity.BaseEntity">
+        <result column="id" property="id"/>
+        <result column="mid" property="mid"/>
+        <result column="pid" property="pid"/>
+        <result column="cid" property="cid"/>
+        <result column="tid" property="tid"/>
+        <result column="addr" property="addr"/>
+        <result column="state" property="state"/>
+        <result column="type" property="type"/>
+    </resultMap>
+    <insert id="createServe_district" parameterType="ServeDistrict">
+        INSERT INTO iee_serve_district_t (mid, pid, cid, tid, addr, state, created_by, created_date, updated_by, updated_date)
+        VALUES (#{mid}, #{pid}, #{cid}, #{tid}, #{addr}, #{createdBy}, 0, now(), #{updatedBy}, now());
+    </insert>
+    <update id="updateServe_district" parameterType="ServeDistrict">
+        UPDATE iee_serve_district_t
+        <set>
+            <if test="mid!=0">
+                mid =#{mid},
+            </if>
+            <if test="pid!=0">
+                pid =#{pid},
+            </if>
+            <if test="cid!=0">
+                cid =#{cid},
+            </if>
+            <if test="tid!=0">
+                tid =#{tid},
+            </if>
+            <if test="addr!=null">
+                addr =#{addr},
+            </if>
+            updated_by=#{updatedBy},
+            updated_date=now()
+
+        </set>
+        where id=#{id}
+    </update>
+    <delete id="deleteServe_district" parameterType="int">
+        DELETE FROM iee_serve_district_t
+        WHERE id = #{id}
+    </delete>
+    <select id="getAllServe_districtByMid" parameterType="int" resultType="ServeDistrict">
+        SELECT *
+        FROM iee_serve_district_t
+        WHERE mid = #{mid}
+        AND type = 1
+    </select>
+    <select id="getServe_districtById" parameterType="int" resultType="ServeDistrict">
+        SELECT *
+        FROM iee_serve_district_t
+        WHERE id = #{id}
+        AND type = 1
+    </select>
+</mapper>

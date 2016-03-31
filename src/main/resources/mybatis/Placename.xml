@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ieebook.wxshop.service.Placename">
+	<resultMap id="province" type="Province">
+        <result column="id" property="ID"/>
+        <result column="name" property="NAME"/>
+        <result column="sn" property="SN"/>
+    </resultMap>
+    <resultMap id="city" type="City">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="province_id" property="province_id"/>
+        <result column="sn" property="sn"/>
+        <result column="agency_fees" property="agency_fees"/>
+    </resultMap>
+    <resultMap id="town" type="Town">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="cityId" property="cityId"/>
+        <result column="provinceId" property="provinceId"/>
+        <result column="sortId" property="sortId"/>
+    </resultMap>
+	<select id="getAllprovince" resultType="Province">
+		SELECT * 
+		FROM iee_province_t
+	</select>
+	<select id="getAllCity"  resultType="City">
+		SELECT * 
+		FROM iee_city_t
+	</select>
+	<select id="getAllTown"  resultType="Town">
+		SELECT * 
+		FROM iee_town_t
+	</select>
+	<select id="getAllCityByProvince" parameterType="string"  resultType="City">
+		SELECT * 
+		FROM iee_city_t
+		WHERE PROVINCE_ID=#{provinceId}
+	</select>
+	<select id="getAllTownByCityId" parameterType="int"  resultType="Town">
+		SELECT * 
+		FROM iee_town_t
+		WHERE cityId=#{cityId}
+	</select>
+	<select id="getProvinceById" parameterType="int" resultType="Province">
+		SELECT * 
+		FROM iee_province_t
+		WHERE ID=#{id}
+	</select>
+	<select id="getCityById" parameterType="int"  resultType="City">
+		SELECT * 
+		FROM iee_city_t
+		WHERE ID=#{id}
+	</select>
+	<select id="getTownById" parameterType="int"  resultType="Town">
+		SELECT * 
+		FROM iee_town_t
+		WHERE id=#{id}
+	</select>
+</mapper>

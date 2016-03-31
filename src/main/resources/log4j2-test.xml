@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="fileLog" fileName="log/fileLog.log" append="false">
+            <PatternLayout pattern="%logger{20} %L [%msg]%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="warn">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="fileLog"/>
+        </Root>
+
+        <!--输出项目代码所有级别的日志-->
+        <Logger name="com.ieebook.wxshop" level="all" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="fileLog"/>
+        </Logger>
+
+    </Loggers>
+</Configuration>

@@ -1,0 +1,149 @@
+body {
+	height:100%;
+	font-size: 13px;
+	overflow-x:hidden;
+	background-color: #ffffff;
+}
+.col-xs-12 {
+	padding: 0px;
+}
+.col-xs-12 > ul {
+	margin: 0px;
+}
+#table{
+	  margin-bottom: 0px; 
+}
+#table tbody tr:FIRST-CHILD >td {
+	height:60px;
+	border-top: 0px;
+}
+#table tbody td {
+	border:0px;
+	padding-top:0px;
+	padding-bottom:0px;
+	border-bottom: 1px solid #f0eff5;
+}
+
+#table thead th {
+	padding:0px;
+	white-space:nowrap;
+	border-bottom: 0px solid #ddd;
+}
+
+/*顶部样式开始*/
+.top {
+
+}
+.top > .line {
+	height: 10px; 
+	background-color: #f0eff5;
+}
+.top > .state {
+	right: 15px; 
+	top: 125px;
+	position: absolute; 
+}
+.top > .state > img {
+	width: 50px;
+	height: 50px;
+}
+.telphone{
+	right: 20px; 
+	top: 70px;
+	position: absolute;
+}
+.telphonepic{
+	font-size: 20px;
+	color:orange;
+}
+
+.top li {
+	list-style-type:none;
+	height: 50px;
+	line-height: 50px;
+	margin-left: -40px;
+	border-bottom: 1px solid #f0eff5;
+}
+.top li:last-child {
+	border-bottom: 0px;
+	border-bottom: 0px solid #f0eff5;
+} 
+.top li > span:first-child {
+	color: #bfbfbf;
+	margin-left: 50px
+	
+}
+/*顶部样式结束*/
+
+
+h4 {
+	float: right;
+	font-size: 14px;
+	padding-left: 15px;
+	
+}
+
+/*总价开始*/
+.total-price {
+	padding-right: 15px; 
+	width:100%; 
+	height:50px;
+	line-height:50px; 
+}
+.total-price > h4{
+	color: #999;
+	margin-top: 18px;
+}
+.total-price > h4 > span{
+	color: #FF7F00;
+	font-size: 14px;
+	font-weight: bold; 	
+}
+/*总价结束*/
+
+/**商品项开始*/
+.item-left,
+.item-right {
+	    float: left;
+    padding-top: 10px;
+    padding-left: 5px;
+    white-space: nowrap;
+    display: table-cell;
+}
+.item-right {
+	float:right;
+}
+
+.item-left li,
+.item-right li {
+	height:25px;
+	line-height:25px;
+	margin-left:0px;
+	list-style-type: none;
+}
+
+.item-left > ul > li:first-child {
+	color:black;
+}
+.item-left > ul > li:last-child {
+	color: gray;
+}
+.item-right > ul > li:first-child {
+	color:#FF7F00;
+}
+.item-right > ul > li:last-child {
+	text-align:right;
+}
+/**商品项结束*/
+
+
+.foot{
+    border-top:1px solid #bcbcbc;
+	width:100%;
+	height:45px;
+	display:block; 
+	position:fixed; 
+	bottom:0%; 
+	padding: 2px 0;	
+	background-color: white;
+}

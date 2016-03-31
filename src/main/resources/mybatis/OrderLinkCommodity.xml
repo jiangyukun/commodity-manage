@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ieebook.wxshop.service.Order_link_commondity">
+    <!-- 商品类型 -->
+    <resultMap id="order_link_commondity" type="OrderLinkCommodity">
+        <result column="oid" property="oid"/>
+        <result column="cid" property="cid"/>
+        <result column="amount" property="amount"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="updated_date" property="updatedDate"/>
+    </resultMap>
+    <select id="getAllByOid" parameterType="string" resultType="OrderLinkCommodity">
+        SELECT *
+        FROM iee_order_link_commondity_t
+        WHERE oid = #{oid}
+        ORDER BY updated_date DESC
+    </select>
+
+</mapper>

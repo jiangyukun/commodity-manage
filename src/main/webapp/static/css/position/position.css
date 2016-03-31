@@ -1,0 +1,103 @@
+
+.row {
+    height:50px;
+}
+.list-group-item{
+	height:50px;
+}
+.arrow {
+    color: #bbb;
+    margin-top: 5px;
+}
+
+.glyphicon-remove-circle {
+    transform: rotate(45deg) scale(1.5, 1.5);
+}
+
+.add-position {
+    color: red;
+}
+
+#add_new_position_text {
+    margin-left: 10px;
+}
+
+#editpositionItemPopup {
+    display: none;
+    z-index: 1111;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    position: fixed;
+}
+
+#edit_title {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.edit-position-item-position {
+    height: 20px;
+    width: 25px;
+}
+
+.select_style {
+	width:200px; 
+	height:30px; 
+	overflow:hidden;  
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius:5px; 
+} 
+.select_style select { 
+	padding:0px; 
+	background:transparent; 
+	width:200px; 
+	font-size: 16px; 
+	border:none; 
+	height:30px; 
+	-webkit-appearance: none; 
+} 
+.addr{
+	border-left:0px;
+	border-top:0px;
+	border-right:0px;
+	border-bottom:1px;
+}
+.foot{
+	 border-top:1px solid #bcbcbc;
+	width:100%;
+	height:45px;
+	display:block; 
+	position:fixed; 
+	bottom:0%; 
+	padding: 2px 0;
+	background: white;
+}
+.btn-confirm{
+	color: white;
+    background: #FF7F00;
+}
+.btn-cancel{
+	border-color: #707070;	
+	background: white;
+    border: solid;
+    border-width: 1px;
+}
+#add{
+	height: 25px;
+    width: 25px;
+    margin-left: 20%;
+}
+#addposition{
+    color: #bfbfbf;
+    font-size: 10px;
+    
+}
+.foot-a{
+    position: absolute;
+    left: 44%;
+    top: 5%;
+    line-height: 12px;
+}

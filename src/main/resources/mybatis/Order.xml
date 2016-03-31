@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ieebook.wxshop.service.Order">
+    <!-- 商品类型 -->
+    <resultMap id="order" type="Order" extends="com.ieebook.wxshop.entity.BaseEntity">
+        <result column="id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="mid" property="mid"/>
+        <result column="tprice" property="tprice"/>
+        <result column="addr" property="addr"/>
+        <result column="payqrcode" property="payqrcode"/>
+        <result column="newAddr" property="newAddr"/>
+        <result column="contactPhone" property="contactPhone"/>
+        <result column="payType" property="payType"/>
+        <result column="state" property="state"/>
+        <result column="description" property="description"/>
+    </resultMap>
+    <select id="getAllOrderByMid" parameterType="int" resultType="Order">
+    	SELECT * FROM iee_order_t
+   		WHERE mid=#{mid}
+   		ORDER BY state ASC,updated_date DESC
+   		LIMIT #{limit} ,20
+    </select>
+	<select id="getAllOrderByStateInMid" parameterType="int" resultType="Order">
+		SELECT * FROM iee_order_t
+		WHERE mid=#{mid} AND state=#{state}
+		ORDER BY updated_date DESC
+		LIMIT #{limit} ,20
+	</select>
+	<select id="getOrderById" parameterType="string" resultType="Order">
+		SELECT * FROM iee_order_t
+    	WHERE id=#{id}
+	</select>	
+	<update id="updateOrderForState" parameterType="Order">
+		UPDATE iee_order_t 
+		SET state=#{state}
+		WHERE id=#{id}
+	</update>
+	<select id="countOverOrder" parameterType="int" resultType="int">
+		select count(*)
+		from iee_order_t
+		where mid=#{mid} and state=2 and day(updated_date)=day(now()) and YEAR(updated_date)=YEAR(now()) and MONTH(updated_date)=MONTH(now())
+	</select>
+	<select id="sumOverOrder" parameterType="int" resultType="string">
+		select SUM(iee_order_t.tprice)
+		from iee_order_t
+		where mid=#{mid} and state=2 and day(updated_date)=day(now()) and YEAR(updated_date)=YEAR(now()) and MONTH(updated_date)=MONTH(now())
+	</select>
+</mapper>

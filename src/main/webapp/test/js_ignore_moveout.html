@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../res/jquery/jquery.js"></script>
+    <style>
+        .div1, .div2 {
+            padding: 50px;
+        }
+
+        .div1 {
+            background: #aaa;
+        }
+
+        .div2 {
+            background: red;
+        }
+
+        .whiteArea {
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="div1"></div>
+<div class="whiteArea"></div>
+<div class="div2"></div>
+
+<script>
+    var $div1 = $('.div1');
+    var $div2 = $('.div2');
+    $div1.on('mouseover', function (event) {
+        console.log('div1 in');
+    });
+    $div1.on('mouseout', function (event) {
+        console.log('div1 out');
+    });
+
+    $div1.on('mouseover', function (event) {
+        console.log('div2 in');
+    });
+    $div1.on('mouseout', function (event) {
+        console.log('div2 out');
+    });
+
+</script>
+
+</body>
+</html>

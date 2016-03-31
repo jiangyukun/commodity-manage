@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ieebook.wxshop.service.CommodityRecommend">
+
+    <resultMap type="CommodityRecommend" id="commodityRecommend" extends="com.ieebook.wxshop.entity.BaseEntity">
+        <result column="id" property="id"/>
+        <result column="mid" property="mid"/>
+        <result column="cid" property="cid"/>
+        
+    </resultMap>
+    <insert id="createCommodityRecommend" parameterType="CommodityRecommend">
+      	INSERT INTO iee_commodity_recommend_t (mid, cid, created_by, created_date, updated_by, updated_date) 
+      	VALUES (#{mid}, #{cid}, #{createdBy}, now(), #{updatedBy}, now());
+    </insert>
+
+    <update id="updateCommodityRecommend" parameterType="CommodityRecommend">
+       	UPDATE iee_commodity_recommend_t  
+       	SET cid=#{cid} 
+       	WHERE id=#{id}
+    </update>
+
+    <select id="getCommodityRecommendbyMId" parameterType="int" resultType="CommodityType">
+        SELECT *
+        FROM iee_commodity_recommend_t
+        WHERE mid = #{mId} AND cid !=null
+        ORDER BY updated_date DESC
+    </select>
+    
+  
+</mapper>

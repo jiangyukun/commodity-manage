@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ieebook.wxshop.service.CommoditySequnce">
+
+    <resultMap type="CommoditySequnce" id="commoditySequnce">
+        <result column="mid" property="mid"/>
+        <result column="cid" property="cid"/>
+    </resultMap>
+    <insert id="creatCommodityCode" parameterType="CommoditySequnce">
+     INSERT INTO iee_commodity_sequnce_t (mid, cid)
+        VALUES (#{mid}, #{cid});
+    </insert>
+   	<select id="getCommodityCodeByMid" parameterType="int" resultType="CommoditySequnce">
+		select *
+		from iee_commodity_sequnce_t
+		where mid = #{mid}
+	</select>
+    <update id="updateCommodityCode" parameterType="CommoditySequnce">
+		update iee_commodity_sequnce_t
+		<set>
+			cid =  #{cid}
+		</set>
+		where mid = #{mid}
+	</update>
+  	
+</mapper>

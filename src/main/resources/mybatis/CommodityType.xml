@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ieebook.wxshop.service.CommodityType">
+    <!-- 商品类型 -->
+    <resultMap type="CommodityType" id="commodityType" extends="com.ieebook.wxshop.entity.BaseEntity">
+        <result column="id" property="id"/>
+        <result column="mid" property="mid"/>
+        <result column="pid" property="pid"/>
+        <result column="is_default" property="is_default"/>
+        <result column="state" property="state"/>
+        <result column="weight" property="weight"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+    </resultMap>
+    <resultMap type="CategoryItemDto" id="CategoryItemDto">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="weight" property="weight"/>
+        <result column="commodityCount" property="commodityCount"/>
+    </resultMap>
+    <!-- =================商品类型================== -->
+    <!-- 创建商品类型-->
+    <insert id="createCommodityType" parameterType="CommodityType">
+        INSERT INTO iee_commodity_type_t (mid, pid, is_default, state, weight, name, description, created_by, created_date, updated_by, updated_date)
+        VALUES (#{mid}, #{pid}, 1, 0, #{weight}, #{name}, #{description}, #{createdBy}, now(), #{updatedBy}, now())
+    </insert>
+
+    <update id="updateCommodityType" parameterType="CommodityType">
+        UPDATE iee_commodity_type_t
+        <set>
+            <if test="pid!=null">
+                pid =#{pid},
+            </if>
+            <if test="state!=null">
+                state =#{state},
+            </if>
+            <if test="weight!=null">
+                weight =#{weight},
+            </if>
+            <if test="name!=null">
+                name =#{name},
+            </if>
+            <if test="description!=null">
+                description =#{description},
+            </if>
+            updated_by=#{updatedBy},
+            updated_date=now()
+
+        </set>
+        where id=#{id}
+    </update>
+
+    <select id="queryCommodityType" parameterType="int" resultType="CommodityType">
+        SELECT *
+        FROM iee_commodity_type_t
+        WHERE mid = #{mId}
+        ORDER BY weight DESC
+    </select>
+
+    <delete id="deleteCommodityType" parameterType="int">
+        DELETE FROM iee_commodity_type_t
+        WHERE id = #{id}
+    </delete>
+
+    <select id="getDefaultCommodityByMId" parameterType="int" resultType="CommodityType">
+        SELECT *
+        FROM iee_commodity_type_t
+        WHERE mid = #{mid} AND is_default = 0
+    </select>
+
+    <select id="getCommodityType" parameterType="int" resultType="CommodityType">
+        SELECT *
+        FROM iee_commodity_type_t
+        WHERE id = #{id}
+    </select>
+
+    <!--分类管理-->
+    <select id="getCategoryList" parameterType="int" resultType="CategoryItemDto">
+        SELECT
+            type.id             AS id,
+            type.NAME           AS name,
+            type.weight         AS weight,
+            count(commodity.id) AS commodityCount
+        FROM
+            iee_commodity_type_t AS type
+            LEFT JOIN iee_commodity_t AS commodity ON type.id = commodity.tid
+        WHERE
+            type.mid = #{merchantId}
+        GROUP BY type.id
+        ORDER BY type.weight
+    </select>
+
+    <select id="getCategorySelectList" parameterType="int" resultType="CategorySelectDto">
+        SELECT
+            type.id   AS id,
+            type.NAME AS name
+        FROM
+            iee_commodity_type_t AS type
+        WHERE
+            type.mid = #{merchantId}
+    </select>
+</mapper>

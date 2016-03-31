@@ -1,0 +1,68 @@
+html,
+body { 
+	height:100%;
+	font-size: 30px;
+	background: white;
+	overflow-x: hidden;
+	color:#636363;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+p{
+	margin: 0 0 0px; 
+}
+.clear{
+	float: right;
+	width:25px;
+	margin-top: 25px;
+}
+.row{
+	margin: 0 25px;
+	text-align: center;
+}
+.mName{
+ 	margin-top: 10px;
+	
+}
+.notice{
+	margin: -40px 0px 10px;
+    font-size: 15px;
+    color: #bfbfbf;
+}
+.icon{
+	    color: #00CD00;
+	    font-size: 45px;
+}
+.money{
+	text-align: left;
+    border-bottom: 2px solid #00CD00;
+}
+.amount{
+margin-bottom: -10px;
+}
+.num-top{
+	border-top: 1px solid #00CD00;
+}
+.num-left{
+	border-left: 1px solid #00CD00;
+}
+.num-right{
+	border-right: 1px solid #00CD00;
+}
+.num-bottom{
+	border-bottom: 1px solid #00CD00;
+}
+.number{
+	background: #BFBFBF;
+}
+.pay{
+	line-height: 44px;
+    margin-top: 15px;
+    background: #bfbfbf;
+    color: white;
+}
+.payspan{
+	font-size: 20px;
+}

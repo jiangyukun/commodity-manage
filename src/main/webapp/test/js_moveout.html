@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../res/jquery/jquery.js"></script>
+    <style>
+        .div1, .div2 {
+            padding: 50px;
+        }
+
+        .div1 {
+            background: #aaa;
+        }
+
+        .div2 {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="div1">
+    <div class="div2"></div>
+</div>
+
+<script>
+    function outOfElement($out, $inner, callback) {
+        var flag = 1;
+        $out.on('mouseover', function (event) {
+            if (flag == 1) {
+                callback('in', event);
+            }
+        });
+        $out.on('mouseout', function (event) {
+            setTimeout(function () {
+                if (flag == 1) {
+                    callback('out', event);
+                } else if (flag == 2) {
+                    flag = 3;
+                }
+                else {
+                    flag = 1;
+                }
+            }, 0);
+        });
+
+        $inner.on('mouseover', function () {
+            flag = 2;
+        });
+    }
+
+    outOfElement($('.div1'), $('.div2'), function (type, event) {
+        console.log(arguments);
+    });
+</script>
+
+</body>
+</html>

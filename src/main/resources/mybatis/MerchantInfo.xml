@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ieebook.wxshop.service.MerchantInfo">
+    <!-- 商户详情表 -->
+    <resultMap type="MerchantInfo" id="merchantInfo" extends="com.ieebook.wxshop.entity.BaseEntity">
+        <result column="mid" property="mid"/>
+        <result column="appid" property="appid"/>
+        <result column="phone" property="phone"/>
+        <result column="name" property="name"/>
+        <result column="address" property="address"/>
+        <result column="img_id" property="imgId"/>
+        <result column="pay_type" property="payType"/>
+    </resultMap>
+
+    <select id="getMerchantInfoByMid" parameterType="int" resultType="MerchantInfo">
+        SELECT *
+        FROM iee_merchant_info_t
+        WHERE mid = #{mid}
+    </select>
+
+
+</mapper>

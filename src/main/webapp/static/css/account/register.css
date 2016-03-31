@@ -1,0 +1,27 @@
+/* weui */
+.weui_cells {
+    font-size: 14px;
+}
+
+.weui_cell_hd, .weui_cell_bd {
+    vertical-align: middle;
+}
+
+.mobile_input, .password_input {
+    padding: 15px;
+}
+
+.weui_label {
+    width: 4.5em;
+}
+
+#getCode {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    font-size: 15px;
+}
+
+#bind {
+    background-color: #EA8010;
+}
